@@ -3,6 +3,9 @@ import { BUTTON_IDS, Button, ControlBank, PAD_COLUMNS, PAD_COUNT, PORT_NAME } fr
 import * as protocol from "./protocol.js";
 /** A transport on a pair of Web MIDI ports. Either may be missing: input only, or output only. */
 export function webMidiTransport(input, output) {
+    // addEventListener does not open a port the way assigning onmidimessage does, so open them here.
+    void input?.open?.().catch(() => { });
+    void output?.open?.().catch(() => { });
     return {
         send(data) {
             output?.send(data);

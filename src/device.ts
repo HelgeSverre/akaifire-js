@@ -49,6 +49,9 @@ export type ConnectOptions = FireOptions & {
 
 /** A transport on a pair of Web MIDI ports. Either may be missing: input only, or output only. */
 export function webMidiTransport(input: MIDIInput | null, output: MIDIOutput | null): Transport {
+  // addEventListener does not open a port the way assigning onmidimessage does, so open them here.
+  void input?.open?.().catch(() => {});
+  void output?.open?.().catch(() => {});
   return {
     send(data) {
       output?.send(data);
