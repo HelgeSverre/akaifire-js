@@ -1,0 +1,50 @@
+{
+  "name": "akaifire",
+  "version": "0.1.0",
+  "description": "Control the AKAI Fire from JavaScript: pad, button and encoder input, RGB pads, LEDs and the OLED, over Web MIDI or any MIDI transport.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./testing": {
+      "types": "./dist/testing.d.ts",
+      "default": "./dist/testing.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "check": "tsc --noEmit",
+    "test": "vitest run",
+    "format": "prettier --write .",
+    "demo": "vite examples"
+  },
+  "keywords": [
+    "akai",
+    "fire",
+    "midi",
+    "webmidi",
+    "controller",
+    "oled"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HelgeSverre/akaifire-js.git"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/webmidi": "^2.1.0",
+    "prettier": "^3.6.2",
+    "typescript": "^6.0.0",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.0"
+  }
+}

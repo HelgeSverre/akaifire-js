@@ -1,0 +1,4 @@
+dist
+src/font.ts
+tests/golden.json
+bun.lock

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>akaifire demo</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 24px;
+        background: #14151a;
+        color: #d8d9e0;
+        font:
+          14px/1.5 system-ui,
+          sans-serif;
+      }
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+        display: grid;
+        gap: 16px;
+      }
+      button {
+        font: inherit;
+        padding: 8px 14px;
+        border-radius: 6px;
+        border: 1px solid #3a3c48;
+        background: #2a2c36;
+        color: inherit;
+        cursor: pointer;
+      }
+      pre {
+        margin: 0;
+        padding: 12px;
+        height: 260px;
+        overflow: auto;
+        background: #0e0f13;
+        border-radius: 6px;
+        font:
+          12px/1.5 ui-monospace,
+          Menlo,
+          monospace;
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>akaifire demo</h1>
+      <p>
+        Connect an AKAI Fire, then press pads (they light in a colour that follows the velocity), turn the
+        knobs and press buttons. The OLED shows the last event. Needs a browser with Web MIDI (Chrome, Edge,
+        Firefox).
+      </p>
+      <div class="row">
+        <button id="connect">Connect</button>
+        <button id="clear" disabled>Clear pads</button>
+        <span id="status">Not connected</span>
+      </div>
+      <pre id="log"></pre>
+    </main>
+    <script type="module" src="./demo.ts"></script>
+  </body>
+</html>
